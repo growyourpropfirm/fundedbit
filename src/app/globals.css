@@ -14,20 +14,25 @@
   --color-primary-green: var(--primary-green);
   --color-secondary-green: var(--secondary-green);
   --color-white: var(--white);
-  --font-primary: var(--font-archivo);
-  --font-secondary: var(--font-blinker);
+  --font-primary: var(--font-inter-display);
+  --font-secondary: var(--font-inter);
+}
+
+html {
+  /* zoom: 80%; */
+  /* Sets the page zoom to 80% for all browsers that support it */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-archivo), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter-display), Arial, Helvetica, sans-serif;
 }
 
 .font-primary {
-  font-family: var(--font-archivo), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter-display), Arial, Helvetica, sans-serif;
 }
 
 .font-secondary {
-  font-family: var(--font-blinker), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }

@@ -1,16 +1,17 @@
-import { Archivo, Blinker } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+const interDisplay = Inter({
+  variable: "--font-inter-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const blinker = Blinker({
-  variable: "--font-blinker",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${archivo.variable} ${blinker.variable} antialiased`}
+        className={`${interDisplay.variable} ${inter.variable} antialiased`}
       >
         {children}
       </body>

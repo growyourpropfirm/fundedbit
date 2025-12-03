@@ -356,7 +356,7 @@ export default function Home() {
                   <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary mb-2">
                     {prize.amount}
                   </h3>
-                  <p className="text-white/80 text-base font-secondary">Account</p>
+                  <p className="text-white/80 text-xl font-bold font-secondary">Account</p>
                 </div>
               </motion.div>
             ))}
