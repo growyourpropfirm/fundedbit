@@ -74,7 +74,7 @@ export default function Home() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="bg-white rounded-3xl border-2 border-[#26813A]/20 shadow-2xl p-6 md:p-8 lg:p-12"
+              className="bg-white rounded-3xl border-2 border-[#26813A]/50 shadow-2xl p-6 md:p-8 lg:p-12"
             >
               {/* Launch Badge */}
               <motion.div variants={itemVariants} className="mb-6 flex items-center justify-center">
