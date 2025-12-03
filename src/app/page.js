@@ -98,11 +98,11 @@ export default function Home() {
               {/* Subtitle */}
               <motion.p
                 variants={itemVariants}
-                className="text-base md:text-lg lg:text-xl text-gray-700 mb-8 font-secondary text-center"
+                className="text-base md:text-lg lg:text-xl text-gray-600 mb-8 font-secondary text-center leading-relaxed"
               >
-                The fair Prop Firm with real <strong>RAW Spreads</strong>,{" "}
-                <strong>clear rules</strong> and{" "}
-                <strong>fast payouts</strong>.
+                The fair Prop Firm with real <strong className="text-gray-900">RAW Spreads</strong>,{" "}
+                <strong className="text-gray-900">clear rules</strong> and{" "}
+                <strong className="text-gray-900">fast payouts</strong>.
               </motion.p>
 
               {/* Giveaway Info */}
@@ -111,11 +111,11 @@ export default function Home() {
                 className="mb-8 text-center"
               >
                 <p className="text-base md:text-lg text-gray-800 mb-3 font-secondary">
-                  💚 Join the waiting list & automatically enter the{" "}
-                  <strong>Giveaway</strong>:
+                  Join the waiting list & automatically enter the{" "}
+                  <strong className="text-[#26813A]">Giveaway</strong>:
                 </p>
                 <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#26813A] font-primary">
-                  💚 <strong>$100,000 | $50,000 | $25,000 Account</strong>
+                  <strong>$100,000 | $50,000 | $25,000 Account</strong>
                 </p>
               </motion.div>
 
@@ -159,8 +159,11 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-center"
                 >
-                  <p className="text-green-800 font-secondary">
-                    ✅ Successfully registered! You automatically enter the giveaway.
+                  <p className="text-green-800 font-secondary flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Successfully registered! You automatically enter the giveaway.
                   </p>
                 </motion.div>
               )}
@@ -180,8 +183,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <p className="text-sm md:text-base text-gray-700 font-secondary">
-                  Already <span className="font-bold">{count.toLocaleString()}+</span> people have signed up
+                <p className="text-sm md:text-base text-gray-600 font-secondary">
+                  Already <span className="font-bold text-gray-900">{count.toLocaleString()}+</span> people have signed up
                 </p>
               </motion.div>
 
@@ -222,7 +225,7 @@ export default function Home() {
             <h3 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 font-primary">
               Our Advantages
             </h3>
-            <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto font-secondary">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-secondary leading-relaxed">
               Get early access to a platform that combines transparency,
               community & fair payouts.
             </p>
@@ -231,19 +234,31 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
             {[
               {
-                icon: "📄",
+                icon: (
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                ),
                 title: "Trade RAW Spreads",
                 description:
                   "Benefit from real market prices without artificial markups - perfect for scalpers & precise entries.",
               },
               {
-                icon: "👥",
+                icon: (
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                ),
                 title: "Growing Trader Community",
                 description:
                   "Learn from others, exchange ideas and grow in a group where everyone has the same goal: getting funded.",
               },
               {
-                icon: "💰",
+                icon: (
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
                 title: "No Withdrawal Refusal",
                 description:
                   "When you're profitable, we pay out reliably – no excuses, no discussion.",
@@ -255,13 +270,17 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-6 md:p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white p-6 md:p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
               >
-                <div className="text-5xl mb-4 text-center">{feature.icon}</div>
+                <div className="flex justify-center mb-6">
+                  <div className="p-4 bg-[#26813A]/10 rounded-xl text-[#26813A]">
+                    {feature.icon}
+                  </div>
+                </div>
                 <h4 className="text-xl md:text-2xl font-bold text-[#26813A] mb-4 font-primary text-center">
                   {feature.title}
                 </h4>
-                <p className="text-gray-700 font-secondary leading-relaxed text-center">
+                <p className="text-gray-600 font-secondary leading-relaxed text-center text-sm md:text-base">
                   {feature.description}
                 </p>
               </motion.div>
@@ -284,26 +303,38 @@ export default function Home() {
               We're Giving Away 3 Funding Accounts:
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-secondary">
-              All waiting list members automatically enter the draw 🚀
+              All waiting list members automatically enter the draw
             </p>
           </motion.div>
 
           <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                icon: "🚀",
+                icon: (
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                ),
                 amount: "$100,000",
-                label: "1x",
+                label: "1st Place",
               },
               {
-                icon: "🎁",
+                icon: (
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2v7m0 0v5a2 2 0 11-4 0v-5m4 0H8m4 0h4M8 8h.01M12 8h.01M16 8h.01" />
+                  </svg>
+                ),
                 amount: "$50,000",
-                label: "1x",
+                label: "2nd Place",
               },
               {
-                icon: "🛡️",
+                icon: (
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                ),
                 amount: "$25,000",
-                label: "1x",
+                label: "3rd Place",
               },
             ].map((prize, index) => (
               <motion.div
@@ -313,15 +344,19 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl"
+                className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl border border-white/10"
               >
                 <div className="text-center">
-                  <div className="text-4xl mb-4">{prize.icon}</div>
-                  <p className="text-white/80 text-lg font-secondary mb-2">{prize.label}</p>
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary">
+                  <div className="flex justify-center mb-6">
+                    <div className="p-3 bg-white/20 rounded-xl text-white">
+                      {prize.icon}
+                    </div>
+                  </div>
+                  <p className="text-white/90 text-base font-secondary mb-3 font-semibold">{prize.label}</p>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-primary mb-2">
                     {prize.amount}
                   </h3>
-                  <p className="text-white/80 text-lg font-secondary mt-2">Account</p>
+                  <p className="text-white/80 text-base font-secondary">Account</p>
                 </div>
               </motion.div>
             ))}
