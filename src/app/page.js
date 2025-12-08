@@ -8,6 +8,8 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [count, setCount] = useState(450);
 
   useEffect(() => {
@@ -18,15 +20,45 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setCount(count + 1);
-    setTimeout(() => {
-      setSubmitted(false);
+    setLoading(true);
+    setError("");
+    setSubmitted(false);
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          name: name,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to subscribe');
+      }
+
+      // Success
+      setSubmitted(true);
+      setCount(count + 1);
       setEmail("");
       setName("");
-    }, 3000);
+      
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.');
+      console.error('Subscription error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const containerVariants = {
@@ -136,7 +168,8 @@ export default function Home() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className="flex-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-900 font-secondary text-base border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#26813A] focus:border-[#26813A] transition-all placeholder:text-gray-500"
+                    disabled={loading}
+                    className="flex-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-900 font-secondary text-base border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#26813A] focus:border-[#26813A] transition-all placeholder:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                   <input
                     type="email"
@@ -144,16 +177,37 @@ export default function Home() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-900 font-secondary text-base border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#26813A] focus:border-[#26813A] transition-all placeholder:text-gray-500"
+                    disabled={loading}
+                    className="flex-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-900 font-secondary text-base border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#26813A] focus:border-[#26813A] transition-all placeholder:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-center"
+                  >
+                    <p className="text-red-800 font-secondary text-sm">{error}</p>
+                  </motion.div>
+                )}
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-4 bg-[#26813A] text-white rounded-lg font-bold text-lg md:text-xl font-primary hover:bg-[#1f6a2e] transition-colors shadow-lg"
+                  whileHover={!loading ? { scale: 1.02 } : {}}
+                  whileTap={!loading ? { scale: 0.98 } : {}}
+                  disabled={loading}
+                  className="w-full px-8 py-4 bg-[#26813A] text-white rounded-lg font-bold text-lg md:text-xl font-primary hover:bg-[#1f6a2e] transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Join Waiting List Now
+                  {loading ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Subscribing...
+                    </>
+                  ) : (
+                    "Join Waiting List Now"
+                  )}
                 </motion.button>
               </motion.form>
 
