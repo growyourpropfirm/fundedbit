@@ -17,6 +17,9 @@ const inter = Inter({
 export const metadata = {
   title: "FUNDEDBIT - Exclusive Waiting List Access",
   description: "Join the FUNDEDBIT waiting list and enter the giveaway for funding accounts",
+  icons: {
+    icon: "/logo.svg"
+  }
 };
 
 export default function RootLayout({ children }) {

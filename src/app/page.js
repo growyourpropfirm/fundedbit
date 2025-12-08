@@ -98,9 +98,16 @@ export default function Home() {
               {/* Subtitle */}
               <motion.p
                 variants={itemVariants}
-                className="text-base md:text-lg lg:text-xl text-gray-600 mb-4 font-secondary text-center leading-relaxed"
+                className="text-base md:text-lg lg:text-xl text-gray-600 mb-4 font-secondary text-center leading-relaxed flex items-center justify-center gap-2 flex-wrap"
               >
-#1 Crypto Prop Firm supported by Bybit.
+                #1 Crypto Prop Firm supported by{" "}
+                <Image 
+                  src="/bybit.png" 
+                  alt="Bybit" 
+                  width={80}
+                  height={24}
+                  className="h-5 md:h-6 lg:h-7 w-auto inline-block"
+                />
               </motion.p>
 
               {/* Giveaway Info */}
@@ -109,7 +116,7 @@ export default function Home() {
                 className="mb-8 text-center"
               >
                 <p className="text-base md:text-lg text-gray-800 mb-3 font-secondary">
-                Join the waitlist now for a chance to win a 
+                  Join the waitlist now for a chance to win a
                 </p>
                 <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#26813A] font-primary">
                   <strong>$100,000 I $50,000 I $25K Account</strong>
@@ -174,9 +181,17 @@ export default function Home() {
                   {[...Array(4)].map((_, i) => (
                     <div
                       key={i}
-                      className="w-10 h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-sm font-bold text-gray-600"
+                      className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white flex-shrink-0"
                     >
-                      {String.fromCharCode(65 + (i % 26))}
+                      <img
+                        src={`https://api.dicebear.com/7.x/avataaars/png?seed=${['user1', 'user2', 'user3', 'user4'][i]}&size=80`}
+                        alt={`User ${i + 1}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.src = `https://api.dicebear.com/7.x/initials/png?seed=${['user1', 'user2', 'user3', 'user4'][i]}&size=80`;
+                        }}
+                      />
                     </div>
                   ))}
                 </div>
@@ -192,12 +207,12 @@ export default function Home() {
               >
                 <a href="#" className="text-gray-600 hover:text-[#26813A] transition-colors">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.007-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.007-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                   </svg>
                 </a>
-                <a href="#" className="text-gray-600 hover:text-[#26813A] transition-colors">
+                <a href="https://www.instagram.com/growyourpropfirm/" target="_blank" className="text-gray-600 hover:text-[#26813A] transition-colors">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
                 </a>
               </motion.div>
@@ -236,7 +251,18 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 ),
-                title: "Supported by Bybit",
+                title: (
+                  <span className="flex items-center justify-center gap-2 flex-wrap">
+                    Supported by{" "}
+                    <Image 
+                      src="/bybit.png" 
+                      alt="Bybit" 
+                      width={80}
+                      height={24}
+                      className="h-6 w-auto inline-block"
+                    />
+                  </span>
+                ),
                 description:
                   "Trade all crypto pairs directly on Bybit while not risking your own money.",
               },
@@ -297,7 +323,7 @@ export default function Home() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-primary">
-            We’re Giving Away 3 Funded Accounts:
+              We’re Giving Away 3 Funded Accounts:
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-secondary">
               All waiting list members automatically enter the draw
@@ -312,41 +338,41 @@ export default function Home() {
                     <defs>
                       {/* Gold metallic gradient with green accent */}
                       <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style={{stopColor: "#FFD700", stopOpacity: 1}} />
-                        <stop offset="30%" style={{stopColor: "#FFA500", stopOpacity: 1}} />
-                        <stop offset="70%" style={{stopColor: "#26813A", stopOpacity: 0.8}} />
-                        <stop offset="100%" style={{stopColor: "#1f6a2e", stopOpacity: 1}} />
+                        <stop offset="0%" style={{ stopColor: "#FFD700", stopOpacity: 1 }} />
+                        <stop offset="30%" style={{ stopColor: "#FFA500", stopOpacity: 1 }} />
+                        <stop offset="70%" style={{ stopColor: "#26813A", stopOpacity: 0.8 }} />
+                        <stop offset="100%" style={{ stopColor: "#1f6a2e", stopOpacity: 1 }} />
                       </linearGradient>
                       <linearGradient id="goldHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style={{stopColor: "#FFF9C4", stopOpacity: 0.8}} />
-                        <stop offset="100%" style={{stopColor: "#FFD700", stopOpacity: 0.3}} />
+                        <stop offset="0%" style={{ stopColor: "#FFF9C4", stopOpacity: 0.8 }} />
+                        <stop offset="100%" style={{ stopColor: "#FFD700", stopOpacity: 0.3 }} />
                       </linearGradient>
                       <radialGradient id="goldShine" cx="30%" cy="30%">
-                        <stop offset="0%" style={{stopColor: "#FFFFFF", stopOpacity: 0.6}} />
-                        <stop offset="100%" style={{stopColor: "#FFD700", stopOpacity: 0}} />
+                        <stop offset="0%" style={{ stopColor: "#FFFFFF", stopOpacity: 0.6 }} />
+                        <stop offset="100%" style={{ stopColor: "#FFD700", stopOpacity: 0 }} />
                       </radialGradient>
                     </defs>
                     {/* Medal ribbon with green */}
-                    <path d="M24 10L28 6H52L56 10V18H24V10Z" fill="#26813A"/>
-                    <path d="M24 18H56V22H24V18Z" fill="#26813A"/>
-                    <path d="M24 22H56V26H24V22Z" fill="#1f6a2e"/>
+                    <path d="M24 10L28 6H52L56 10V18H24V10Z" fill="#26813A" />
+                    <path d="M24 18H56V22H24V18Z" fill="#26813A" />
+                    <path d="M24 22H56V26H24V22Z" fill="#1f6a2e" />
                     {/* Medal circle - outer ring */}
-                    <circle cx="40" cy="45" r="22" fill="url(#goldGradient)" stroke="#1f6a2e" strokeWidth="2.5"/>
+                    <circle cx="40" cy="45" r="22" fill="url(#goldGradient)" stroke="#1f6a2e" strokeWidth="2.5" />
                     {/* Inner highlight for 3D effect */}
-                    <circle cx="40" cy="45" r="20" fill="url(#goldShine)"/>
+                    <circle cx="40" cy="45" r="20" fill="url(#goldShine)" />
                     {/* Inner circle */}
-                    <circle cx="40" cy="45" r="16" fill="url(#goldGradient)" stroke="#FFD700" strokeWidth="1.5" opacity="0.6"/>
+                    <circle cx="40" cy="45" r="16" fill="url(#goldGradient)" stroke="#FFD700" strokeWidth="1.5" opacity="0.6" />
                     {/* Number 1 */}
-                    <text 
-                      x="40" 
-                      y="45" 
-                      fontSize="32" 
-                      fontWeight="900" 
-                      fill="#1f6a2e" 
-                      textAnchor="middle" 
+                    <text
+                      x="40"
+                      y="45"
+                      fontSize="32"
+                      fontWeight="900"
+                      fill="#1f6a2e"
+                      textAnchor="middle"
                       fontFamily="Arial, sans-serif"
                       dominantBaseline="central"
-                      style={{alignmentBaseline: "central", textShadow: "0 1px 2px rgba(0,0,0,0.2)"}}
+                      style={{ alignmentBaseline: "central", textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
                     >1</text>
                   </svg>
                 ),
@@ -359,37 +385,37 @@ export default function Home() {
                     <defs>
                       {/* Silver metallic gradient with green accent */}
                       <linearGradient id="silverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style={{stopColor: "#E8E8E8", stopOpacity: 1}} />
-                        <stop offset="30%" style={{stopColor: "#C0C0C0", stopOpacity: 1}} />
-                        <stop offset="70%" style={{stopColor: "#26813A", stopOpacity: 0.7}} />
-                        <stop offset="100%" style={{stopColor: "#1f6a2e", stopOpacity: 1}} />
+                        <stop offset="0%" style={{ stopColor: "#E8E8E8", stopOpacity: 1 }} />
+                        <stop offset="30%" style={{ stopColor: "#C0C0C0", stopOpacity: 1 }} />
+                        <stop offset="70%" style={{ stopColor: "#26813A", stopOpacity: 0.7 }} />
+                        <stop offset="100%" style={{ stopColor: "#1f6a2e", stopOpacity: 1 }} />
                       </linearGradient>
                       <radialGradient id="silverShine" cx="30%" cy="30%">
-                        <stop offset="0%" style={{stopColor: "#FFFFFF", stopOpacity: 0.7}} />
-                        <stop offset="100%" style={{stopColor: "#C0C0C0", stopOpacity: 0}} />
+                        <stop offset="0%" style={{ stopColor: "#FFFFFF", stopOpacity: 0.7 }} />
+                        <stop offset="100%" style={{ stopColor: "#C0C0C0", stopOpacity: 0 }} />
                       </radialGradient>
                     </defs>
                     {/* Medal ribbon with green */}
-                    <path d="M24 10L28 6H52L56 10V18H24V10Z" fill="#26813A"/>
-                    <path d="M24 18H56V22H24V18Z" fill="#26813A"/>
-                    <path d="M24 22H56V26H24V22Z" fill="#1f6a2e"/>
+                    <path d="M24 10L28 6H52L56 10V18H24V10Z" fill="#26813A" />
+                    <path d="M24 18H56V22H24V18Z" fill="#26813A" />
+                    <path d="M24 22H56V26H24V22Z" fill="#1f6a2e" />
                     {/* Medal circle - outer ring */}
-                    <circle cx="40" cy="45" r="22" fill="url(#silverGradient)" stroke="#1f6a2e" strokeWidth="2.5"/>
+                    <circle cx="40" cy="45" r="22" fill="url(#silverGradient)" stroke="#1f6a2e" strokeWidth="2.5" />
                     {/* Inner highlight for 3D effect */}
-                    <circle cx="40" cy="45" r="20" fill="url(#silverShine)"/>
+                    <circle cx="40" cy="45" r="20" fill="url(#silverShine)" />
                     {/* Inner circle */}
-                    <circle cx="40" cy="45" r="16" fill="url(#silverGradient)" stroke="#E8E8E8" strokeWidth="1.5" opacity="0.6"/>
+                    <circle cx="40" cy="45" r="16" fill="url(#silverGradient)" stroke="#E8E8E8" strokeWidth="1.5" opacity="0.6" />
                     {/* Number 2 */}
-                    <text 
-                      x="40" 
-                      y="45" 
-                      fontSize="32" 
-                      fontWeight="900" 
-                      fill="#1f6a2e" 
-                      textAnchor="middle" 
+                    <text
+                      x="40"
+                      y="45"
+                      fontSize="32"
+                      fontWeight="900"
+                      fill="#1f6a2e"
+                      textAnchor="middle"
                       fontFamily="Arial, sans-serif"
                       dominantBaseline="central"
-                      style={{alignmentBaseline: "central", textShadow: "0 1px 2px rgba(0,0,0,0.2)"}}
+                      style={{ alignmentBaseline: "central", textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
                     >2</text>
                   </svg>
                 ),
@@ -402,37 +428,37 @@ export default function Home() {
                     <defs>
                       {/* Bronze metallic gradient with green accent */}
                       <linearGradient id="bronzeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style={{stopColor: "#CD7F32", stopOpacity: 1}} />
-                        <stop offset="30%" style={{stopColor: "#B87333", stopOpacity: 1}} />
-                        <stop offset="70%" style={{stopColor: "#26813A", stopOpacity: 0.7}} />
-                        <stop offset="100%" style={{stopColor: "#1f6a2e", stopOpacity: 1}} />
+                        <stop offset="0%" style={{ stopColor: "#CD7F32", stopOpacity: 1 }} />
+                        <stop offset="30%" style={{ stopColor: "#B87333", stopOpacity: 1 }} />
+                        <stop offset="70%" style={{ stopColor: "#26813A", stopOpacity: 0.7 }} />
+                        <stop offset="100%" style={{ stopColor: "#1f6a2e", stopOpacity: 1 }} />
                       </linearGradient>
                       <radialGradient id="bronzeShine" cx="30%" cy="30%">
-                        <stop offset="0%" style={{stopColor: "#FFE5B4", stopOpacity: 0.6}} />
-                        <stop offset="100%" style={{stopColor: "#CD7F32", stopOpacity: 0}} />
+                        <stop offset="0%" style={{ stopColor: "#FFE5B4", stopOpacity: 0.6 }} />
+                        <stop offset="100%" style={{ stopColor: "#CD7F32", stopOpacity: 0 }} />
                       </radialGradient>
                     </defs>
                     {/* Medal ribbon with green */}
-                    <path d="M24 10L28 6H52L56 10V18H24V10Z" fill="#26813A"/>
-                    <path d="M24 18H56V22H24V18Z" fill="#26813A"/>
-                    <path d="M24 22H56V26H24V22Z" fill="#1f6a2e"/>
+                    <path d="M24 10L28 6H52L56 10V18H24V10Z" fill="#26813A" />
+                    <path d="M24 18H56V22H24V18Z" fill="#26813A" />
+                    <path d="M24 22H56V26H24V22Z" fill="#1f6a2e" />
                     {/* Medal circle - outer ring */}
-                    <circle cx="40" cy="45" r="22" fill="url(#bronzeGradient)" stroke="#1f6a2e" strokeWidth="2.5"/>
+                    <circle cx="40" cy="45" r="22" fill="url(#bronzeGradient)" stroke="#1f6a2e" strokeWidth="2.5" />
                     {/* Inner highlight for 3D effect */}
-                    <circle cx="40" cy="45" r="20" fill="url(#bronzeShine)"/>
+                    <circle cx="40" cy="45" r="20" fill="url(#bronzeShine)" />
                     {/* Inner circle */}
-                    <circle cx="40" cy="45" r="16" fill="url(#bronzeGradient)" stroke="#CD7F32" strokeWidth="1.5" opacity="0.6"/>
+                    <circle cx="40" cy="45" r="16" fill="url(#bronzeGradient)" stroke="#CD7F32" strokeWidth="1.5" opacity="0.6" />
                     {/* Number 3 */}
-                    <text 
-                      x="40" 
-                      y="45" 
-                      fontSize="32" 
-                      fontWeight="900" 
-                      fill="#1f6a2e" 
-                      textAnchor="middle" 
+                    <text
+                      x="40"
+                      y="45"
+                      fontSize="32"
+                      fontWeight="900"
+                      fill="#1f6a2e"
+                      textAnchor="middle"
                       fontFamily="Arial, sans-serif"
                       dominantBaseline="central"
-                      style={{alignmentBaseline: "central", textShadow: "0 1px 2px rgba(0,0,0,0.2)"}}
+                      style={{ alignmentBaseline: "central", textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
                     >3</text>
                   </svg>
                 ),
@@ -475,22 +501,23 @@ export default function Home() {
               Follow us on all socials. Winners will be announced on our socials and notified by email.
             </p>
             <div className="flex items-center justify-center gap-6">
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="text-gray-600 hover:text-[#26813A] transition-colors"
                 aria-label="Discord"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.007-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.007-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                 </svg>
               </a>
-              <a 
-                href="#" 
+              <a
+                href="https://www.instagram.com/growyourpropfirm/"
+                target="_blank"
                 className="text-gray-600 hover:text-[#26813A] transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </a>
             </div>
