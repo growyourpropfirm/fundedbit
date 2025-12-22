@@ -113,7 +113,7 @@ export default function Home() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-[#26813A] rounded-full"></div>
                   <span className="px-4 py-2 bg-[#26813A] text-white rounded-full text-sm md:text-base font-secondary font-semibold">
-                    LAUNCH: DECEMBER 2025
+                    LAUNCH: JANUARY 2026
                   </span>
                 </div>
               </motion.div>
@@ -229,7 +229,7 @@ export default function Home() {
               {/* Social Proof */}
               <motion.div
                 variants={itemVariants}
-                className="flex items-center justify-center gap-4 mb-6"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
               >
                 <div className="flex -space-x-2">
 
