@@ -20,7 +20,7 @@ export const metadata = {
   description:
     "Join the FUNDEDBIT waiting list and enter the giveaway for funding accounts",
   icons: {
-    icon: "/logo.svg",
+    icon: "/favicon.ico",
   },
   verification: {
     google: "6hae6Nulsu85ZtPPvT9re1wq3PSeubVJpb9iWkGATek",
