@@ -551,7 +551,8 @@ export default function Home() {
             </p>
             <div className="flex items-center justify-center gap-6">
               <a
-                href="#"
+                href="https://discord.gg/MGqs7XSw"
+                target="_blank"
                 className="text-gray-600 hover:text-[#26813A] transition-colors"
                 aria-label="Discord"
               >
