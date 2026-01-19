@@ -23,13 +23,23 @@ html {
   /* Sets the page zoom to 80% for all browsers that support it */
 }
 
-body {
+/* body {
   background: linear-gradient(180deg, #010d01 0%, #013d14 30%, #397f2b 100%);
   background-attachment: fixed;
   min-height: 100vh;
   color: #fefefe;
   font-family: var(--font-inter-display), Arial, Helvetica, sans-serif;
+} */
+
+body {
+  background: 
+  linear-gradient(180deg, rgba(1, 13, 1, 0.9) 0%, rgba(1, 61, 20, 0.7) 30%, rgba(7, 72, 42, 0.9) 100%),
+  url('/trade-bg.jpeg') center/cover no-repeat fixed;
+  min-height: 100vh;
+  color: #fefefe;
+  font-family: var(--font-inter-display), Arial, Helvetica, sans-serif;
 }
+
 
 .font-primary {
   font-family: var(--font-inter-display), Arial, Helvetica, sans-serif;

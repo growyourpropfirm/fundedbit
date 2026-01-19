@@ -92,7 +92,7 @@ export default function Home() {
             {/* Logo at top center */}
             <div className="flex justify-center mb-8">
               <Image
-                src="/logo.svg"
+                src="/logo-white.svg"
                 alt="FUNDEDBIT Logo"
                 width={200}
                 height={60}
@@ -106,7 +106,7 @@ export default function Home() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="bg-[#013d14]/80 backdrop-blur-sm rounded-3xl border-2 border-[#8af5ae]/30 shadow-2xl p-6 md:p-8 lg:p-12"
+              className="bg-[#013d14]/60 backdrop-blur-sm rounded-3xl border-2 border-[#8af5ae]/30 shadow-2xl p-6 md:p-8 lg:p-12"
             >
               {/* Launch Badge */}
               <motion.div variants={itemVariants} className="mb-6 flex items-center justify-center">
